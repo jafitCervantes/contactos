@@ -38,9 +38,9 @@ public void MySQLConnection(String user, String pass, String db_name) throws Exc
 }
 
 
- public void deleteRecord(String table_name, String ID) {
+ public void deleteRecord(String table_name, int id) {
         try {
-            String Query = "DELETE FROM " + table_name + " WHERE ID = \"" + ID + "\"";
+            String Query = "DELETE FROM " + table_name + " WHERE ID = \"" + id + "\"";
             Statement st = Conexion.createStatement();
             st.executeUpdate(Query);
 
