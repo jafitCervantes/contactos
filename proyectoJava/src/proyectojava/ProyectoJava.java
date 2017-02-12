@@ -20,7 +20,9 @@ public class ProyectoJava {
     public static void main(String[] args) throws Exception  {
         int num = 123;
         MySQL db = new MySQL();
-        db.MySQLConnection("root","","prueba");
+        
+        //aqui van los nombres de usuario y base de datos segun tengan configurado su gestor de bd
+        db.MySQLConnection("root","","libreta");
         db.insertData(num);
         
     }
