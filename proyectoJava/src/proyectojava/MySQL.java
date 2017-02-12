@@ -99,33 +99,9 @@ public void insertData(int num) {
         }
     }
 
- public void createDB(String name) throws Exception {
-        try {
-            String Query = "CREATE DATABASE " + name;
-            Statement st = Conexion.createStatement();
-            st.executeUpdate(Query);
-            closeConnection();
-            MySQLConnection("root", "", name);
-JOptionPane.showMessageDialog(null, "Se ha creado la base de datos " + name + " de forma exitosa");
-        } catch (SQLException ex) {
-            Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
- public void createTable(String name) {
-        try {
-            String Query = "CREATE TABLE " + name + ""
-                    + "(ID VARCHAR(25),Nombre VARCHAR(50), Apellido VARCHAR(50),"
-                    + " Edad VARCHAR(3), Sexo VARCHAR(1))";
- 
-            Statement st = Conexion.createStatement();
 
-            st.executeUpdate(Query);
-JOptionPane.showMessageDialog(null, "Se ha creado la tabla " + name + " de forma exitosa");
-        } catch (SQLException ex) {
-            Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
 
 
  public void closeConnection() {
