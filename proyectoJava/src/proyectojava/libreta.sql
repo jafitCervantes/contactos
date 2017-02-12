@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2017 a las 17:13:54
--- Versión del servidor: 5.6.20
--- Versión de PHP: 5.5.15
+-- Servidor: localhost
+-- Tiempo de generación: 12-02-2017 a las 18:19:23
+-- Versión del servidor: 5.5.16
+-- Versión de PHP: 5.3.8
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -32,13 +32,24 @@ CREATE TABLE IF NOT EXISTS `deportista` (
   `aPaterno` varchar(50) NOT NULL,
   `aMaterno` varchar(50) NOT NULL,
   `genero` varchar(50) NOT NULL,
-  `fechaNacimiento` date NOT NULL,
+  `fechaNacimiento` varchar(20) NOT NULL,
   `deporte` varchar(50) NOT NULL,
   `celular` varchar(10) NOT NULL,
   `casa` varchar(10) NOT NULL,
   `email` varchar(60) NOT NULL,
-  `idOcupacion` text NOT NULL
+  `celulard` varchar(10) NOT NULL,
+  `casad` varchar(10) NOT NULL,
+  `emaild` varchar(60) NOT NULL,
+  `idOcupacion` varchar(11) NOT NULL,
+  PRIMARY KEY (`idDeportista`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `deportista`
+--
+
+INSERT INTO `deportista` (`idDeportista`, `nombre`, `aPaterno`, `aMaterno`, `genero`, `fechaNacimiento`, `deporte`, `celular`, `casa`, `email`, `celulard`, `casad`, `emaild`, `idOcupacion`) VALUES
+(1, 'Juan Antonio ', 'Rodriguez', 'Lopez', 'Masculino', '22-Enero-1994', 'Futbol', '4492091444', '9727098', 'juan@gmail.com', '', '', '', 'Deportista');
 
 -- --------------------------------------------------------
 
@@ -51,14 +62,18 @@ CREATE TABLE IF NOT EXISTS `doctor` (
   `nombre` varchar(50) NOT NULL,
   `aPaterno` varchar(50) NOT NULL,
   `aMaterno` varchar(50) NOT NULL,
-  `fechaNacimiento` date NOT NULL,
+  `fechaNacimiento` varchar(20) NOT NULL,
   `celular` varchar(10) NOT NULL,
   `casa` varchar(10) NOT NULL,
   `email` varchar(60) NOT NULL,
+  `celulard` varchar(10) NOT NULL,
+  `casad` varchar(10) NOT NULL,
+  `emaild` varchar(60) NOT NULL,
   `especialidad` varchar(50) NOT NULL,
   `nombreHospital` varchar(50) NOT NULL,
   `direccionHospital` varchar(60) NOT NULL,
-  `idOcupacion` text NOT NULL
+  `idOcupacion` varchar(11) NOT NULL,
+  PRIMARY KEY (`idDoctor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -73,12 +88,16 @@ CREATE TABLE IF NOT EXISTS `estudiante` (
   `aPaterno` varchar(50) NOT NULL,
   `aMaterno` varchar(50) NOT NULL,
   `lugarNacimiento` varchar(70) NOT NULL,
-  `fechaNacimiento` date NOT NULL,
+  `fechaNacimiento` varchar(20) NOT NULL,
   `carrera` varchar(60) NOT NULL,
   `email` varchar(60) NOT NULL,
   `celular` varchar(10) NOT NULL,
   `casa` varchar(10) NOT NULL,
-  `idOcupacion` text NOT NULL
+  `emaild` varchar(60) NOT NULL,
+  `celulard` varchar(10) NOT NULL,
+  `casad` varchar(10) NOT NULL,
+  `idOcupacion` varchar(11) NOT NULL,
+  PRIMARY KEY (`idEstudiante`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -93,12 +112,19 @@ CREATE TABLE IF NOT EXISTS `licenciado` (
   `aPaterno` varchar(50) NOT NULL,
   `aMaterno` varchar(50) NOT NULL,
   `telefonoOficina` varchar(10) NOT NULL,
-  `horaAtencionInicio` time NOT NULL,
-  `horaAtencionFin` time NOT NULL,
+  `horaAtencionInicio` varchar(20) NOT NULL,
+  `horaAtencionFin` varchar(20) NOT NULL,
   `celular` varchar(10) NOT NULL,
   `casa` varchar(10) NOT NULL,
   `email` varchar(60) NOT NULL,
-  `idOcupacion` text NOT NULL
+  `emaild` varchar(60) NOT NULL,
+  `celulard` varchar(10) NOT NULL,
+  `casad` varchar(10) NOT NULL,
+  `emailt` varchar(60) NOT NULL,
+  `celulart` varchar(10) NOT NULL,
+  `casat` varchar(10) NOT NULL,
+  `idOcupacion` varchar(11) NOT NULL,
+  PRIMARY KEY (`idLicenciado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -115,45 +141,15 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `celular` varchar(10) NOT NULL,
   `casa` varchar(10) NOT NULL,
   `email` varchar(60) NOT NULL,
+  `emaild` varchar(60) NOT NULL,
+  `celulard` varchar(10) NOT NULL,
+  `casad` varchar(10) NOT NULL,
   `domicilio` varchar(60) NOT NULL,
   `contactoPreferido` varchar(50) NOT NULL,
   `ocupacionPersona` varchar(60) NOT NULL,
-  `idocupaciòn` text NOT NULL
+  `idocupacion` varchar(11) NOT NULL,
+  PRIMARY KEY (`idPersona`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `deportista`
---
-ALTER TABLE `deportista`
- ADD PRIMARY KEY (`idDeportista`);
-
---
--- Indices de la tabla `doctor`
---
-ALTER TABLE `doctor`
- ADD PRIMARY KEY (`idDoctor`);
-
---
--- Indices de la tabla `estudiante`
---
-ALTER TABLE `estudiante`
- ADD PRIMARY KEY (`idEstudiante`);
-
---
--- Indices de la tabla `licenciado`
---
-ALTER TABLE `licenciado`
- ADD PRIMARY KEY (`idLicenciado`);
-
---
--- Indices de la tabla `persona`
---
-ALTER TABLE `persona`
- ADD PRIMARY KEY (`idPersona`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
